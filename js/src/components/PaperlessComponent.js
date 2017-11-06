@@ -13,6 +13,9 @@ class PaperlessComponent extends React.Component {
 
     // GET DATA URI
     getDataUri(url, callback) {
+        // cant get dataURL from remote image, this is a security violation
+        return callback(url);
+
         if (localStorage.getItem(url)) {
             return callback(localStorage.getItem(url));
         }
